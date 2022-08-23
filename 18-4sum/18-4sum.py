@@ -34,7 +34,7 @@ class Solution:
         
         # a time complexity attack could be found by exploiting your results set, LOL O(N⁴), literally this is leetcode being leetcode. WOw, my solution was perfect. 
         
-        results = set()
+        results = {}
         
         for i in range(size):
             for j in range(i, size):
@@ -43,6 +43,6 @@ class Solution:
                 if number in pairs:
                     for pair in pairs[number]:
                         if pair[0] > j:
-                            results.add((nums[i], nums[j], nums[pair[0]], nums[pair[1]]))
+                            results[((nums[i], nums[j], nums[pair[0]], nums[pair[1]]))] = True
 
-        return results
+        return results.keys()
