@@ -8,11 +8,15 @@ class Solution:
                 myHash[nums[i]] = [i]
             else:
                 myHash[nums[i]] = myHash[nums[i]] + [i]
-                
-        for i in range(len(nums)):
             number = target - nums[i]
-            if nums[i] != number and number in myHash:
-                return [i, myHash[number][0]]
-            elif number in myHash and len(myHash[number]) > 1:
-                return [i, myHash[number][1]]
+            res = self.check(nums, i, number, myHash)
+            if res: return res
+            
+    def check(self, nums, i, number, myHash):
+        if nums[i] != number and number in myHash:
+            return [i, myHash[number][0]]
+        elif number in myHash and len(myHash[number]) > 1:
+            return [i, myHash[number][0]]
+        else:
+            return False
             
