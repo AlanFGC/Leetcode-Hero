@@ -4,7 +4,9 @@ class Solution:
         
         size = len(nums)
         
-        # we need to apply the same logic we used in two Sum,
+        # we need to apply the same logic we used in two Sum
+        
+        # pro-gamer anti time complexity attack
         magic = nums[0]
         for i in range(size):
             if magic != nums[i] or size < 4:
@@ -12,6 +14,7 @@ class Solution:
             if i == size -1:
                 if magic * 4 == target:
                     return [[magic, magic, magic, magic]]
+        
         # we need to sort to handle the output better (1,3,2,5) is the same as (1,2,5,3)
         # this even applies for creating pairs. Sorting is super important for this problem
         nums.sort()
