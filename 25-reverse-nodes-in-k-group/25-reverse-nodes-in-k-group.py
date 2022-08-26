@@ -1,6 +1,5 @@
 # tail IS INCLUDED in the reversal
 def reverse(prev, head, tail, nextNode):
-    print(prev)
     ptr = head
     pastPtr = None
     nextPtr = None
@@ -17,8 +16,6 @@ def reverse(prev, head, tail, nextNode):
     # rewire
     prev.next = head
     tail.next = nextNode
-    #print(prev)
-    #print("==========================")
     
 
 
