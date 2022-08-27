@@ -8,7 +8,6 @@ class Solution:
         # with two pointer we also need a set, neighter logn for binary
         # is much much faster
         for i in range(size):
-            print("\t", nums[i])
             low = i + 1
             high = size - 1
             while high > low:
