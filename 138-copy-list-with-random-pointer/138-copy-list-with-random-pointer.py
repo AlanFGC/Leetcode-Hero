@@ -34,7 +34,6 @@ class Solution:
         
         ptr1 = head
         ptr2 = newHead
-        print(posOld)
         while ptr1:
             ptr2.random = posNew[posOld[ptr1.random]]
             ptr2 = ptr2.next
