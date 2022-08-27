@@ -5,7 +5,7 @@ class Solution:
         results = set()
         # it's better to use two pointer when we can for these kinds of problems
         # binary search was good but has bugs and it's overall slower
-        # with two pointer we also need a set, neighter logn for binary
+        # with two pointer we also need a set, this is better than logn for binary
         # is much much faster
         for i in range(size):
             low = i + 1
