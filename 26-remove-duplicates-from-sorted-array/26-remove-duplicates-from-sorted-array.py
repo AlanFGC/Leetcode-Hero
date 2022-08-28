@@ -8,7 +8,6 @@ class Solution:
         ptr1 = 0
         ptr2 = 1
         while ptr1 < len(nums) and ptr2 < len(nums):
-            print("running")
             if nums[ptr2] == nums[ptr1]:
                 ptr2 += 1
             else:
