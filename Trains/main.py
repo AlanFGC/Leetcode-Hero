@@ -1,3 +1,4 @@
+# https://www.codingninjas.com/codestudio/problems/799400?topList=striver-sde-sheet-problems&utm_source=striver&utm_medium=website&leftPanelTab=0
 # don't use queue, it does not work for this problem!!
 def calculateMinPatforms(at, dt, n):
     print(at, "\n", dt)
