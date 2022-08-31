@@ -4,14 +4,16 @@ def generate(index, nums, size, currSelect: list, powerSet):
         powerSet.append(currSelect.copy())
         return
     
-    #choice we added the current index!
-    currSelect.append(nums[index])
-    generate(index + 1, nums, size, currSelect, powerSet)
     
     # copy this for our second branch
     # choice, we didn't add the current index
-    currSelect.pop()
-    currSelectRight = currSelect
+    currSelectRight = currSelect.copy()
+    
+    
+    #choice we added the current index!
+    currSelect.append(nums[index])
+    generate(index + 1, nums, size, currSelect, powerSet)
+
     
     nextIndex = index + 1
     while nextIndex < size and nums[nextIndex] == nums[index]:
