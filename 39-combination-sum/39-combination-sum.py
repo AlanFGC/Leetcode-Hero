@@ -27,7 +27,6 @@ def backtracking(index, subset, currSum, target, candidates, sets):
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        candidates.sort()
         sets = []
         index = 0
         currSum = 0
