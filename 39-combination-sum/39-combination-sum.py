@@ -14,7 +14,6 @@ def backtracking(index, subset, currSum, target, candidates, sets):
     currSum += newElement
     subset.append(newElement)
 
-    # keep using this
     backtracking(index, subset, currSum, target, candidates, sets)
 
 
