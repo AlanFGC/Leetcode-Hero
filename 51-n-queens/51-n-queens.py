@@ -19,6 +19,9 @@ def backtracking(row, queens, board, n, res):
 
 def checkQueen(board, queens, queenPos, n):
     for oldQueen in queens:
+        # remember remember the fifth of november 
+        # la diferencia de una diagonal es el valo absoluto de los dos x y de los y
+        # si son iguales, entonces están en diagonal
         diffX = abs(oldQueen[0] - queenPos[0])
         diffY = abs(oldQueen[1] - queenPos[1])
         if diffY == diffX or oldQueen[0] == queenPos[0] or oldQueen[1] == queenPos[1]:
