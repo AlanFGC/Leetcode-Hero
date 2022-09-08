@@ -1,4 +1,4 @@
-def backtracking(row, cols, board, n, res):
+def backtracking(row, queens, board, n, res):
     if row == n:
         newBoard = [""] * n
         for i in range(n):
@@ -7,49 +7,24 @@ def backtracking(row, cols, board, n, res):
         return
     
     for i in range(n):
-        if i in cols:
-            continue
-        
-        flag = checkQueen(board, (row, i), n)
-        
+        flag = checkQueen(board, queens, (row, i), n)
         if not flag:
             board[row][i] = 'Q'
-            cols.add(i)
-            backtracking(row + 1, cols, board, n, res)
-            cols.remove(i)
+            queens.add((row, i))
+            backtracking(row + 1, queens, board, n, res)
+            queens.remove((row, i))
             board[row][i] = '.'
     return False
 
 
-def checkQueen(board, queenPos, n):
-    top = queenPos[0] + 1
-    bottom = queenPos[0] - 1
-    right = queenPos[1] + 1
-    left = queenPos[1] - 1
-    #check states
-    while left >= 0 or right < n  or bottom >= 0 or top < n:
-        if arrCheck(top, right, n, board):
+def checkQueen(board, queens, queenPos, n):
+    for oldQueen in queens:
+        diffX = abs(oldQueen[0] - queenPos[0])
+        diffY = abs(oldQueen[1] - queenPos[1])
+        if diffY == diffX or oldQueen[0] == queenPos[0] or oldQueen[1] == queenPos[1]:
             return True
-        elif arrCheck(top, left, n, board):
-            return True
-        elif arrCheck(bottom, right, n, board):
-            return True
-        elif arrCheck(bottom, left, n, board):
-            return True
-        top += 1
-        bottom -= 1
-        right += 1
-        left -= 1
+        
     return False
-        
-        
-def arrCheck(x, y, n, board):
-    if (x >= n or x < 0) or (y >= n or y < 0):
-        return False
-    elif board[x][y] == 'Q':
-        return True
-    else:
-        return False
             
 
 class Solution:
@@ -60,7 +35,7 @@ class Solution:
         # we must configure the board in such a way that queens don't attack
         # each other diagonally.
         res = []
-        cols = set()
+        queens = set()
         # generate all possible ways but cut the solution if it doesn't work
-        backtracking(0, cols, board, n, res)       
+        backtracking(0, queens, board, n, res)       
         return res
