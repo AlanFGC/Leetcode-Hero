@@ -23,7 +23,6 @@ def checkQueen(board, queens, queenPos, n):
         diffY = abs(oldQueen[1] - queenPos[1])
         if diffY == diffX or oldQueen[0] == queenPos[0] or oldQueen[1] == queenPos[1]:
             return True
-        
     return False
             
 
