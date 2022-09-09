@@ -83,6 +83,7 @@ class Solution:
                     cols[j].add(int(value))
                     boxes[getBoxId(i, j)].add(int(value))
 
+        # backtracking steps
         backTrack(0, 0, rows, cols, boxes, board)
  
         return None
