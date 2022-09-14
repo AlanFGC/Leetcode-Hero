@@ -74,4 +74,4 @@ class Solution:
    
   # credits this was heavily insipired by:
   # https://www.youtube.com/watch?v=nv7F4PiLUzo&t=1094s
-  # I struggle a lot to implement this and it still doesn't work, I do understand the logic behind it though.
+  # I struggled a lot to implement this and it still doesn't work, however I do understand the logic behind it.
