@@ -2,6 +2,8 @@
 
 Hello ✌, this is my journey demonstrating how I prepare for interviews but also train to be a better problem solver. Each submission tells a story, I hope you can get to know me better or help you understand that this process requires time and discipline, but it's definitely achievable.
 
+Note that I keep a private extra document where I take notes and analyze solutions, I highly recommend you to do this if you are studying since each problem has a pattern and this pattern is highly reusable in other problems.
+
 Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
 
 Regarding code that I do not own:
