@@ -18,10 +18,33 @@ def maxPages(arr, maxPages, size, k):
         mostPages = max(currentPages, mostPages)
 
     if numOfstudents <= k:
-        return maxPages
+        return mostPages
     else:
         # func failed
         return float('inf')
+        
+        
+# dumb down function, equally correct but simpler!       
+def success(A, mostPages, k):
+    student = 1
+    currPages = 0
+    for i in range(len(A)):
+        if A[i] > mostPages:
+            return False
+        elif currPages + A[i] <= mostPages:
+            currPages += A[i]
+        else:
+            student += 1
+            currPages = 0
+            currPages += A[i]
+        
+        if student > k:
+            return False
+
+    if student <= k:
+        return True
+    else:
+        return False
 
 
 class Solution:
@@ -37,7 +60,7 @@ class Solution:
         if B > len(A):
             return -1
     # binary search can be used in a range that we can tune!
-        low = min(A)
+        low = max(A)
         high = sum(A)
         size = len(A)
         # what's or winning condition though?
@@ -45,13 +68,11 @@ class Solution:
         finalRes = float('inf')
         while low <= high:
             mid = (high + low) // 2
-            # print("mid: ", mid, low, high)
-            res = maxPages(A, mid, size, B)
-            finalRes = min(res, finalRes)
-            if res == float('inf'):
-                low = mid + 1
-            else:
+            if success(A, mid, B):
                 high = mid - 1
-
+                finalRes = min(finalRes, mid)
+            else:
+                low = mid + 1
+                
         return finalRes
 # Link: https://www.interviewbit.com/problems/allocate-books/
