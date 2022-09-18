@@ -25,8 +25,6 @@ class Solution:
         res = []
         
         for i in range(0, k):
-            
-            print(i, k)
             number = heapq.heappop(heap)
             res.append(number[1])
             
