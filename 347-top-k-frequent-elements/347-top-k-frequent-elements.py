@@ -18,7 +18,6 @@ class Solution:
         
         
         heapq.heapify(heap)
-        print(heap)
         if len(heap) == 1:
             return [heap[0][1]]
         
