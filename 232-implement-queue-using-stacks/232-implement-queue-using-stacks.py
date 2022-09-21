@@ -3,25 +3,33 @@ class MyQueue:
     def __init__(self):
         self.stackA = []
         self.stackB = []
+        self.sizeA = 0
+        self.sizeB = 0
         
     def push(self, x: int) -> None:
         self.stackA.append(x)
-        print(self.stackA)
+        self.sizeA += 1
 
     def pop(self) -> int:
-        if len(self.stackB) > 0:
+        if self.sizeB > 0:
+            self.sizeB -= 1
             return self.stackB.pop(-1)
         
-        for i in range(len(self.stackA)):
+        for i in range(self.sizeA):
+            self.sizeA -= 1
+            self.sizeB += 1
             self.stackB.append(self.stackA.pop(-1))
-        print(self.stackB)
+
+        self.sizeB -= 1
         return self.stackB.pop(-1)
 
     def peek(self) -> int:
-        if len(self.stackB) > 0:
+        if self.sizeB > 0:
             return self.stackB[-1]
-        elif len(self.stackA) > 0:
-            for i in range(len(self.stackA)):
+        elif self.sizeA > 0:
+            for i in range(self.sizeA):
+                self.sizeA -= 1
+                self.sizeB += 1
                 self.stackB.append(self.stackA.pop(-1))
             return self.stackB[-1]
         else:
@@ -29,7 +37,7 @@ class MyQueue:
         
 
     def empty(self) -> bool:
-        if len(self.stackA) > 0 or len(self.stackB) > 0:
+        if self.sizeA > 0 or self.sizeB > 0:
             return False
         else:
             return True
