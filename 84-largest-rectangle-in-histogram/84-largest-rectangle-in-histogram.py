@@ -53,7 +53,7 @@ class Solution:
             # our start marking gets initialized to our current index
             if i != 0 and heights[i-1] > heights[i]:
                 maxArea, start = popStack(stack, heights, i, maxArea)
-        
+                        
             stack.append((start, heights[i]))
         while stack:
             value = stack.pop()
