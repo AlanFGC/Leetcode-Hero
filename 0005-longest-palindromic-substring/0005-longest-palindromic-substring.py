@@ -54,6 +54,7 @@ class Solution:
                 res = s[l:r+1]
                 maxSize = len(res)
         
+        # for even palindromesssssssssssssssssssssssssssssssssssssss
         for i in range(sSize-1):
             if s[i] != s[i+1]:
                 continue       
