@@ -23,9 +23,9 @@ class Solution:
         elif sizeA > sizeB and b in a:
             return 1
     
-        
-        for i in range(sizeB):
-            if b[i] not in a:
+        setB = set(b)
+        for value in setB:
+            if value not in A:
                 return -1
         
         # by this point len(a) >= len(b)
