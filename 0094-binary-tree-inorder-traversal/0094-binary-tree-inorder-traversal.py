@@ -6,20 +6,45 @@
 #         self.right = right
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        """
+        Morris implementation of traversal
+        """
         res = []
         node = root
-        def traverse(node, res):
-            if not node:
-                return
+        "algo ends when current is null"
+        while node:
+            # no left child
+            if not node.left:
+                res.append(node.val)
+                node = node.right
+                continue
             
-            if node.left:
-                traverse(node.left, res)
+            # main algo
             
-            res.append(node.val)
+            pred = self.findPredecessor(node)
+            print(f'{pred.val}')
             
-            if node.right:
-                traverse(node.right, res)
-        
-        traverse(node, res)
+            # if predecessor exists we connect it to the top node
+            # we will do this till he have added all the LEFT nodes in this
+            # branch
+            if not pred.right:
+                pred.right = node
+                node = node.left
+            else:
+                pred.right = None
+                res.append(node.val)
+                node = node.right
         
         return res
+                
+                
+                
+    
+    def findPredecessor(self, node: TreeNode)-> TreeNode:
+        curr = node
+        node = node.left
+        while node.right is not None and node.right != curr:
+            node = node.right
+            
+        return node
+            
