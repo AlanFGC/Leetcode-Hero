@@ -23,6 +23,7 @@ class Solution:
         # in order traversal
         node = root
         
+        
         def traverseNode(node, vert, lvl):
             if not node:
                 return None
@@ -35,7 +36,7 @@ class Solution:
             
             return newNode
         
-        
+        # linear
         newRoot = traverseNode(root, 0, 0)
         
         myMap = {}
@@ -58,20 +59,24 @@ class Solution:
             
             return node
         
+        # linear
         normalTraversal(newRoot, myMap)
         
         keyList = list(myMap.keys())
+        # klogk
         keyList.sort()
 
-        
+        # linear
         res = []
         for i in range(len(keyList)):
             res.append(myMap[keyList[i]])
         
-        
+        # sorting nlogn
         for item in res:
+            # remember to sort 2 keys with lambda
             item.sort(key=lambda item: (item.lvl, item.val))
-            
+        
+        # linear time
         for i in range(len(res)):
             for j in range(len(res[i])):
                 res[i][j] = res[i][j].val
